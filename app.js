@@ -119,7 +119,7 @@ app.get("", (req, res) => {
 app.use(express.static("public"));
 
 app.listen(port, () => {
-    var socket = io.connect('http://localhost:${port}');
+    console.log(`Example app listening at http://localhost:${port}`);
 });
 
 function getRandomInt(max) {
