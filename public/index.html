@@ -42,25 +42,25 @@
 
 <body>
 
-    <div class="page">
-        <div class="page-content">
+    <div class="page ">
+        <div class="page-content content-area pt-0 bottom-sp100">
             <div class="navbar navbar-style-1">
                 <div class="navbar-bg"></div>
                 <div class="navbar-inner sliding">
-                    <div class="left">
+                    <!-- <div class="left">
                         <a href="history.back()" class="link back">
                             <svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M4.3419 8L10.2222 2.22222L8 2.73828e-07L1.22201e-06 8L8 16L10.2222 13.7778L4.3419 8Z" fill="#122261"/>
                       </svg>
 
                         </a>
-                    </div>
-                    <div class="title color-theme">Fingerprint</div>
+                    </div> -->
+                    <div class="title" style="color: var(--f7-theme-color);">Fingerprint</div>
                 </div>
             </div>
             <div class="tabs">
                 <div id="tab-1" class="page-content tab tab-active">
-                    <div class="space" style=" height:35px;"></div>
+                    <div class="space" style=" height:15px;"></div>
                     <div class="block">
                         <center>
                             <p style="font-size:15px;">You're new to Attender. <br />Please register your biometrics below</p>
@@ -72,7 +72,7 @@
                             <h5 class="custom-file-label text-primary">Attender - EAS</h5>
                             <h5>Student Registration</h5>
                         </center>
-                        <div class="item-input-wrap" style="    background: #f8f8f8;
+                        <div class="item-input-wrap" style=" background: #f8f8f8;
                            
                             padding: 15px 25px;
                             border-radius: 8px;
@@ -84,22 +84,16 @@
                             <input type="text" id="alias" placeholder="Enter Your College Roll No.">
                             <span class="input-clear-button"></span>
                         </div>
-                        <div class="toolbar toolbar-bottom container footer-button padding">
-                            <center><a id="passwordless-register" class="link" class="button button-fill sheet-open button-large button" data-sheet=".demo-sheet-swipe-to-close">REGISTER</a></center>
+                        <div class="padding">
+                            <!-- <center><a  class="link" class="button button-fill button-large button">REGISTER</a></center> -->
                         </div>
 
-                        <h6 class="text-primary"><pre id="status"></pre></h6>
-
-
-                        <!-- <button id="passwordless-register" class="col button button-large button-fill">register</button><br/><br /> -->
-                        <!-- <button id="passwordless-sigin" class="col button button-large button-fill">signin</button> -->
-                        <!-- <button id="passwordless-sigin">signin</button> -->
-                        <pre id="status"></pre>
+                        <h5 class="custom-file-label text-primary"><pre id="status"></pre></h5>
 
 
                         <div class="bottom-layer">
                             <div class="toolbar toolbar-bottom container footer-button padding">
-                                <button href="javascript:pageRedirect()" onclick="pageRedirect()" class="col button button-large button-fill">DONE</button>
+                                <button id="passwordless-register" class="col button button-large button-fill">REGISTER</button>
                             </div>
                         </div>
 
@@ -111,7 +105,7 @@
 
     <script type="text/javascript">
         function pageRedirect() {
-            window.location.replace("/index.php");
+            window.location.replace("http://attender.rf.gd/#!/home/");
         }
         setTimeout("", 100);
     </script>
@@ -132,7 +126,7 @@
                 "[" + new Date().toLocaleTimeString() + "]: " + text + "\n";
             status.innerText = newLine + currentText;
         }
-        Status("Welcome! Please register or sign in");
+        Status("Welcome! Please register.");
 
         if (API_KEY[0] === "<") {
             Status("WARNING: Please change the API_KEY in index.html and API_KEY_SECRET in app.js before running the example.")
@@ -172,7 +166,7 @@
             try {
                 await p.register(backendResponse);
 
-                Status("Successfully registered WebAuthn. You can now sign in!");
+                Status("Successfully registered WebAuthn. You can now explore Attender.");
 
                 /**
                  * Done - the user can now sign in using the key
